@@ -129,11 +129,6 @@ Component.register('swag-migration-wizard-page-connection-create', {
                 return Promise.resolve();
             }
 
-            if (value === 'profileLink') {
-                this.$router.push({ name: 'swag.migration.wizard.profileInstallation' });
-                return Promise.resolve();
-            }
-
             this.selection.profile = value;
 
             return new Promise((resolve) => {
@@ -143,7 +138,7 @@ Component.register('swag-migration-wizard-page-connection-create', {
 
                 if (this.selection.profile !== null) {
                     this.migrationService.getGateways(this.selection.profile).then((gateways) => {
-                        this.gateways = gateways;
+                        this.gateways = gateways.filter(gateway => gateway.name === 'api');
                         this.selection.gateway = null;
 
                         if (this.gateways.length === 1) {

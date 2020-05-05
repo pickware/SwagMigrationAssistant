@@ -1,7 +1,6 @@
 import './mixin';
 import './component';
 import './page';
-import './extension/sw-settings-index';
 import './extension/sw-dashboard-index';
 import './profile';
 import MigrationProcessStore from '../../core/data/migrationProcess.store';
@@ -85,10 +84,6 @@ Module.register('swag-migration', {
                 introduction: {
                     path: 'introduction',
                     component: 'swag-migration-wizard-page-introduction'
-                },
-                profileInstallation: {
-                    path: 'profile/installation',
-                    component: 'swag-migration-wizard-page-profile-installation'
                 },
                 connectionCreate: {
                     path: 'connection/create',
